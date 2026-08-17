@@ -1,0 +1,12 @@
+export { personal } from "./personal";
+export { navigation, footerLinks } from "./navigation";
+export { timeline } from "./timeline";
+export { education } from "./education";
+export { automationSkills } from "./automation-skills";
+export { developmentSkills } from "./development-skills";
+export { services } from "./services";
+export { experience, freelanceExperience } from "./experience";
+export { projects } from "./projects";
+export { certificates } from "./certificates";
+export { contact, socialLinks, resume } from "./contact";
+export { interests } from "./interests";

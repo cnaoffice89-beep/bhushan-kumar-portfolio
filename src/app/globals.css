@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --space-black: #020617;
+  --space-deep: #0a1628;
+  --space-blue: #0f2744;
+  --cyan-glow: #22d3ee;
+  --cyan-aqua: #06b6d4;
+  --electric-blue: #3b82f6;
+  --crimson: #dc2626;
+  --violet: #7c3aed;
+  --ocean-deep: #042f3a;
+  --ocean-mid: #0a4f5c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--space-black);
+  color: #f8fafc;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.3);
+  color: #fff;
+}
+
+@layer components {
+  .glass-panel {
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl;
+  }
+
+  .glass-nav {
+    @apply border-b border-white/10 bg-space-black/70 backdrop-blur-xl;
+  }
+
+  .glow-border {
+    @apply relative overflow-hidden;
+  }
+
+  .glow-border::before {
+    content: "";
+    @apply absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-500;
+    background: linear-gradient(
+      135deg,
+      rgba(34, 211, 238, 0.3),
+      rgba(59, 130, 246, 0.2),
+      rgba(124, 58, 237, 0.2)
+    );
+    padding: 1px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+
+  .glow-border:hover::before {
+    @apply opacity-100;
+  }
+
+  .section-padding {
+    @apply px-4 py-24 sm:px-6 lg:px-8 lg:py-32;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-cyan-glow via-electric to-violet bg-clip-text text-transparent;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-glow focus-visible:ring-offset-2 focus-visible:ring-offset-space-black;
+  }
+}
+
+@layer utilities {
+  .animate-in-view {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .animate-in-view.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--space-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 238, 0.5);
+}
