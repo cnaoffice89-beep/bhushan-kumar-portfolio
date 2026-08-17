@@ -57,7 +57,13 @@ export default function RootLayout({
       className={`${inter.variable} ${orbitron.variable} ${jetbrains.variable}`}
     >
       <head>
+        <meta
+          name="google-site-verification"
+          content="x_Rb3P6KZtsII1FcLYwkNM0JF7g2dsXJSy6syM7qBcU"
+        />
+
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -83,6 +89,7 @@ export default function RootLayout({
           }}
         />
       </head>
+
       <body className="font-body antialiased">{children}</body>
     </html>
   );
