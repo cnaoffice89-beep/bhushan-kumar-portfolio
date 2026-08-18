@@ -31,6 +31,6 @@ export const personal = {
       "Freelance Developer",
       "Web Developer in Indore",
     ],
-    url: "https://bhushankumar.dev",
+   url: "https://melodious-tanuki-a2c5e2.netlify.app",
   },
 } as const;
