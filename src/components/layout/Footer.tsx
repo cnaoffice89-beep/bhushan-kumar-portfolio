@@ -1,6 +1,6 @@
 "use client";
 
-import { footerLinks, personal, contact } from "@/data";
+import { footerLinks, personal } from "@/data";
 import { scrollToSection } from "@/lib/utils";
 
 export function Footer() {
@@ -12,7 +12,10 @@ export function Footer() {
             <h3 className="font-display text-lg font-bold text-white">
               {personal.name}
             </h3>
-            <p className="mt-1 text-sm text-white/50">{personal.title}</p>
+
+            <p className="mt-1 text-sm text-white/50">
+              {personal.title}
+            </p>
           </div>
 
           <nav aria-label="Footer navigation">
@@ -21,30 +24,12 @@ export function Footer() {
                 <li key={link.href}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-sm text-white/60 transition-colors hover:text-cyan-glow focus-ring rounded"
+                    className="rounded text-sm text-white/60 transition-colors hover:text-cyan-glow focus-ring"
                   >
                     {link.label}
                   </button>
                 </li>
               ))}
-              <li>
-                <a
-                  href={contact.whatsapp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-white/60 transition-colors hover:text-cyan-glow focus-ring rounded"
-                >
-                  WhatsApp
-                </a>
-              </li>
-              <li>
-                <a
-                  href={contact.email.mailto}
-                  className="text-sm text-white/60 transition-colors hover:text-cyan-glow focus-ring rounded"
-                >
-                  Email
-                </a>
-              </li>
             </ul>
           </nav>
 
